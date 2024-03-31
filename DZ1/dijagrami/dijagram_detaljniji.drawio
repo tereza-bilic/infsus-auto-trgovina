@@ -1,0 +1,66 @@
+<mxfile host="app.diagrams.net" modified="2024-03-31T20:42:23.774Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36" etag="QwAQrpCDOfmCVZQ6x-rZ" version="24.2.1" type="device">
+  <diagram name="Page-1" id="4MEf5ujtRRqZvTeJne0F">
+    <mxGraphModel dx="2527" dy="1198" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2ftaypCQVNypx-ndfsva-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="2ftaypCQVNypx-ndfsva-1" target="2ftaypCQVNypx-ndfsva-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2ftaypCQVNypx-ndfsva-1" target="2ftaypCQVNypx-ndfsva-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-1" value="Prijavljeni&amp;nbsp;&lt;div&gt;korisnik&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-660" y="240" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="2ftaypCQVNypx-ndfsva-3" target="2ftaypCQVNypx-ndfsva-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-3" value="P2.3: Carina i porez kalkulator" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fbe4d5;" vertex="1" parent="1">
+          <mxGeometry x="-260" y="270" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="2ftaypCQVNypx-ndfsva-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-210.5" y="520" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-4" value="P2.4: Informacije o povlasticama" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fbe4d5;" vertex="1" parent="1">
+          <mxGeometry x="-260" y="400" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2ftaypCQVNypx-ndfsva-5" target="2ftaypCQVNypx-ndfsva-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-5" value="P2.5: Financiranje - Kreditni kalkulator" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fbe4d5;" vertex="1" parent="1">
+          <mxGeometry x="-260" y="523" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2ftaypCQVNypx-ndfsva-6" target="2ftaypCQVNypx-ndfsva-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-6" value="P2.6: Financiranje - Leasing kalkulator" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fbe4d5;" vertex="1" parent="1">
+          <mxGeometry x="-260" y="650" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-7" value="(D4) Rezultat kalkulacije" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#231A26;" vertex="1" parent="1">
+          <mxGeometry x="30" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2ftaypCQVNypx-ndfsva-9" target="2ftaypCQVNypx-ndfsva-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-9" value="P2.1 Prikaz&lt;div&gt;detalja&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-460" y="160" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="2ftaypCQVNypx-ndfsva-10" target="2ftaypCQVNypx-ndfsva-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-10" value="P2.2 Generiranje cijena" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-460" y="290" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="2ftaypCQVNypx-ndfsva-19" target="2ftaypCQVNypx-ndfsva-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2ftaypCQVNypx-ndfsva-19" value="P2.7: Prikaz cijena" style="ellipse;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#fbe4d5;" vertex="1" parent="1">
+          <mxGeometry x="-80" y="570" width="100" height="100" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
