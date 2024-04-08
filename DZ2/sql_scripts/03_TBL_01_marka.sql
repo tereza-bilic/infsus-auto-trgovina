@@ -1,0 +1,4 @@
+CREATE TABLE marka (
+	id SERIAL PRIMARY KEY
+	, ime VARCHAR(30)
+);

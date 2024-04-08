@@ -1,0 +1,4 @@
+CREATE TABLE oprema (
+	id SERIAL PRIMARY KEY
+	, opis VARCHAR(50)
+);

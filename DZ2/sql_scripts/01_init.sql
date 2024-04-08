@@ -1,0 +1,1 @@
+CREATE DATABASE auto_trgovina;
