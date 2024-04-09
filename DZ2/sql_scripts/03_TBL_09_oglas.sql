@@ -1,15 +1,15 @@
 CREATE TABLE oglas (
 	id SERIAL PRIMARY KEY
-	, naslov VARCHAR(30)
-	, model_id INT
-	, kilometraza INT
-	, snaga_kw INT
-	, godina_proizvodnje INT
-	, oblik_karoserije_id INT
-	, vrsta_motora_id INT
-	, vrsta_mjenjaca_id INT
-	, objavio_korisnik_id INT
-	, datum_objave DATETIME
+	, naslov VARCHAR(30) NOT NULL
+	, model_id INT NOT NULL
+	, kilometraza INT NOT NULL
+	, snaga_kw INT NOT NULL
+	, godina_proizvodnje INT NOT NULL
+	, oblik_karoserije_id INT NOT NULL
+	, vrsta_motora_id INT NOT NULL
+	, vrsta_mjenjaca_id INT NOT NULL
+	, objavio_korisnik_id INT NOT NULL
+	, datum_objave DATETIME NOT NULL
 );
 
 ALTER TABLE oglas ADD CONSTRAINT oglas_fk_model 

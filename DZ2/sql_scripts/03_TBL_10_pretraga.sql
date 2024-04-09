@@ -1,6 +1,6 @@
 CREATE TABLE pretraga (
 	id SERIAL PRIMARY KEY
-	, korisnik_id INT
+	, korisnik_id INT NOT NULL
 	, model_id INT
 	, oblik_karoserije_id INT
 	, kilometraza_od INT
