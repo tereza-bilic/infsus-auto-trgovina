@@ -1,4 +1,4 @@
-CREATE TABLE vrsta_mjenjaca (
+CREATE TABLE vrsta_motora (
   id SERIAL PRIMARY KEY
   , ime VARCHAR(30) NOT NULL
 );
