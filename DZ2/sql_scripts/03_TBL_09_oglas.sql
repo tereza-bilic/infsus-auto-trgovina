@@ -10,6 +10,7 @@ CREATE TABLE oglas (
 	, vrsta_mjenjaca_id INT NOT NULL
 	, objavio_korisnik_id INT NOT NULL
 	, datum_objave DATETIME NOT NULL
+	, cijena INT NOT NULL
 );
 
 ALTER TABLE oglas ADD CONSTRAINT oglas_fk_model 
