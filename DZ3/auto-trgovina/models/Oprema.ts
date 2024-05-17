@@ -13,8 +13,15 @@ const get = (id: number) => {
   return conn.query("SELECT * FROM oprema WHERE id = $1", [id]);
 };
 
-const add = async (oprema: Oprema) => {
+const add = (oprema: Oprema) => {
   return conn.query("INSERT INTO oprema (opis) VALUES ($1)", [oprema.opis]);
+};
+
+const update = (id: number, oprema: Oprema) => {
+  return conn.query("UPDATE oprema SET (opis) = ($1) WHERE id = $2", [
+    oprema.opis,
+    id,
+  ]);
 };
 
 const remove = (id: number) => {
@@ -25,6 +32,7 @@ const oprema = {
   getAll,
   get,
   add,
+  update,
   remove,
 };
 

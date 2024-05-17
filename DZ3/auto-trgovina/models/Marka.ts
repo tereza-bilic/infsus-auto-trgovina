@@ -13,8 +13,15 @@ const get = (id: number) => {
   return conn.query("SELECT * FROM marka WHERE id = $1", [id]);
 };
 
-const add = async (marka: Marka) => {
+const add = (marka: Marka) => {
   return conn.query("INSERT INTO marka (ime) VALUES ($1)", [marka.ime]);
+};
+
+const update = (id: number, marka: Marka) => {
+  return conn.query("UPDATE marka SET (ime) = ($1) WHERE id = $2", [
+    marka.ime,
+    id,
+  ]);
 };
 
 const remove = (id: number) => {
@@ -25,6 +32,7 @@ const marka = {
   getAll,
   get,
   add,
+  update,
   remove,
 };
 

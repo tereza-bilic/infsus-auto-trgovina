@@ -24,6 +24,13 @@ const add = async (korisnik: Korisnik) => {
   );
 };
 
+const update = (id: number, korisnik: Korisnik) => {
+  return conn.query(
+    "UPDATE korisnik SET (korisnicko_ime) = ($1) WHERE id = $2",
+    [korisnik.korisnicko_ime, id]
+  );
+};
+
 const remove = (id: number) => {
   return conn.query("DELETE FROM korisnik WHERE id = $1", [id]);
 };
@@ -32,6 +39,7 @@ const korisnik = {
   getAll,
   get,
   add,
+  update,
   remove,
 };
 

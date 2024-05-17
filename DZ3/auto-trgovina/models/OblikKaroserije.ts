@@ -13,9 +13,16 @@ const get = (id: number) => {
   return conn.query("SELECT * FROM oblikKaroserije WHERE id = $1", [id]);
 };
 
-const add = async (oblikKaroserije: OblikKaroserije) => {
+const add = (oblikKaroserije: OblikKaroserije) => {
   return conn.query("INSERT INTO oblikKaroserije (opis) VALUES ($1)", [
     oblikKaroserije.opis,
+  ]);
+};
+
+const update = (id: number, oblikKaroserije: OblikKaroserije) => {
+  return conn.query("UPDATE oblikKaroserije SET (opis) = ($1) WHERE id = $2", [
+    oblikKaroserije.opis,
+    id,
   ]);
 };
 
@@ -27,6 +34,7 @@ const oblikKaroserije = {
   getAll,
   get,
   add,
+  update,
   remove,
 };
 
