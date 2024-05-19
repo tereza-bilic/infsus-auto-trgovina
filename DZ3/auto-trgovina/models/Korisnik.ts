@@ -24,6 +24,7 @@ const add = async (korisnik: Korisnik) => {
   );
 };
 
+// TODO: see what to do with korisnik update
 const update = (id: number, korisnik: Korisnik) => {
   return conn.query(
     "UPDATE korisnik SET (korisnicko_ime) = ($1) WHERE id = $2",

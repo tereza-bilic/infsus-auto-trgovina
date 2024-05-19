@@ -3,11 +3,14 @@ import { NextRequest, NextResponse } from "next/server";
 // Model
 import favorit from "@/models/Favoriti";
 
-export async function GET(request: NextRequest) {
+// Types
+import { ParamsWithId } from "@/@types/api";
+
+export async function GET(request: NextRequest, { params }: ParamsWithId) {
   const response = favorit
-    .getAll()
+    .get(params.id)
     .then((data) => {
-      return NextResponse.json(data.rows, { status: 200 });
+      return NextResponse.json(data.rows[0], { status: 200 });
     })
     .catch(() => {
       return NextResponse.json({ success: false }, { status: 500 });
@@ -16,11 +19,9 @@ export async function GET(request: NextRequest) {
   return response;
 }
 
-export async function POST(request: NextRequest) {
-  const res = await request.json();
-
+export async function DELETE(request: NextRequest, { params }: ParamsWithId) {
   const response = favorit
-    .add(res)
+    .remove(params.id)
     .then(() => {
       return NextResponse.json({ success: true }, { status: 200 });
     })

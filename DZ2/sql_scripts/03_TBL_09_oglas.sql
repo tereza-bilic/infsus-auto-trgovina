@@ -9,7 +9,7 @@ CREATE TABLE oglas (
 	, vrsta_motora_id INT NOT NULL
 	, vrsta_mjenjaca_id INT NOT NULL
 	, objavio_korisnik_id INT NOT NULL
-	, datum_objave DATETIME NOT NULL
+	, datum_objave TIMESTAMP NOT NULL
 	, cijena INT NOT NULL
 );
 
