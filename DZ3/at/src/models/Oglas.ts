@@ -1,86 +1,32 @@
-import conn from "@/lib/db";
+import { PrismaClient, Oglas } from '@prisma/client';
 
-export type Oglas = {
-  id?: number;
-  naslov: string;
-  model_id: number;
-  kilometraza: number;
-  snaga_kw: number;
-  godina_proizvodnje: number;
-  oblik_karoserije_id: number;
-  vrsta_motora_id: number;
-  vrsta_mjenjaca_id: number;
-  objavio_korisnik_id: number;
-  datum_objave: Date;
-  cijena: number;
+const prisma = new PrismaClient();
+
+export const getAllOglasi = async (): Promise<Oglas[]> => {
+  return await prisma.oglas.findMany();
 };
 
-const getAll = () => {
-  return conn.query("SELECT * FROM oglas");
+export const getOglasById = async (id: number): Promise<Oglas | null> => {
+  return await prisma.oglas.findUnique({
+    where: { id },
+  });
 };
 
-const get = (id: number) => {
-  return conn.query("SELECT * FROM oglas WHERE id = $1", [id]);
+export const createOglas = async (data: Omit<Oglas, 'id'>): Promise<Oglas> => {
+  return await prisma.oglas.create({
+    data,
+  });
 };
 
-const add = (oglas: Oglas) => {
-  return conn.query(
-    "INSERT INTO oglas (" +
-      "naslov, model_id, kilometraza, snaga_kw, godina_proizvodnje, " +
-      "oblik_karoserije_id, vrsta_motora_id, vrsta_mjenjaca_id" +
-      "objavio_korisnik_id, datum_objave, cijena" +
-      ") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)",
-    [
-      oglas.naslov,
-      oglas.model_id,
-      oglas.kilometraza,
-      oglas.snaga_kw,
-      oglas.godina_proizvodnje,
-      oglas.oblik_karoserije_id,
-      oglas.vrsta_motora_id,
-      oglas.vrsta_mjenjaca_id,
-      oglas.objavio_korisnik_id,
-      oglas.datum_objave,
-      oglas.cijena,
-    ]
-  );
+export const updateOglas = async (id: number, data: Partial<Oglas>): Promise<Oglas> => {
+  return await prisma.oglas.update({
+    where: { id },
+    data,
+  });
 };
 
-const update = (id: number, oglas: Oglas) => {
-  return conn.query(
-    "UPDATE oglas SET (" +
-      "naslov, model_id, kilometraza, snaga_kw, godina_proizvodnje, " +
-      "oblik_karoserije_id, vrsta_motora_id, vrsta_mjenjaca_id" +
-      "objavio_korisnik_id, datum_objave, cijena" +
-      ") = ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)" +
-      "WHERE id = $12",
-    [
-      (oglas.naslov,
-      oglas.model_id,
-      oglas.kilometraza,
-      oglas.snaga_kw,
-      oglas.godina_proizvodnje,
-      oglas.oblik_karoserije_id,
-      oglas.vrsta_motora_id,
-      oglas.vrsta_mjenjaca_id,
-      oglas.objavio_korisnik_id,
-      oglas.datum_objave,
-      oglas.cijena,
-      id),
-    ]
-  );
+export const deleteOglas = async (id: number): Promise<Oglas> => {
+  return await prisma.oglas.delete({
+    where: { id },
+  });
 };
-
-const remove = (id: number) => {
-  return conn.query("DELETE FROM oglas WHERE id = $1", [id]);
-};
-
-const oglas = {
-  getAll,
-  get,
-  add,
-  update,
-  remove,
-};
-
-export default oglas;

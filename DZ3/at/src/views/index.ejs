@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Auto Trgovina</title>
+    <link href="/stylesheets/output.css" rel="stylesheet">
   </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <body class="bg-off-white">
+    <%- include('./components/navigation'); %>
+
+    <main class="container mx-auto my-10 p-4 h-dvh">
+      <div class="text-center mb-10">
+        <h2 class="text-4xl font-bold mb-4">Welcome to Auto Trgovina</h2>
+        <p class="text-xl text-dark-blue">Find your perfect car with us</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white p-6 rounded-lg shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300">
+          <img src="https://via.placeholder.com/300x200" alt="Car" class="w-full h-48 object-cover rounded-t-lg">
+          <h3 class="text-2xl font-bold mt-4">Car 1</h3>
+          <p class="text-gray-600 mt-2">Description of Car 1</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300">
+          <img src="https://via.placeholder.com/300x200" alt="Car" class="w-full h-48 object-cover rounded-t-lg">
+          <h3 class="text-2xl font-bold mt-4">Car 2</h3>
+          <p class="text-gray-600 mt-2">Description of Car 2</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300">
+          <img src="https://via.placeholder.com/300x200" alt="Car" class="w-full h-48 object-cover rounded-t-lg">
+          <h3 class="text-2xl font-bold mt-4">Car 3</h3>
+          <p class="text-gray-600 mt-2">Description of Car 3</p>
+        </div>
+      </div>
+    </main>
+
+    <%- include('./components/footer'); %>
   </body>
 </html>
