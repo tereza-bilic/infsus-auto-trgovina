@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>New Oglas - Auto Trgovina</title>
+  <link href="/stylesheets/output.css" rel="stylesheet">
+</head>
+<body class="bg-off-white">
+  <%- include('../components/navigation'); %>
+
+  <main class="container mx-auto my-10 p-4">
+    <h2 class="text-3xl font-bold mb-4">New Oglas</h2>
+    <form action="/oglasi" method="POST" class="max-w-lg mx-auto">
+      <div class="mb-4">
+        <label for="naslov" class="block text-gray-700 font-bold mb-2">Naslov</label>
+        <input type="text" id="naslov" name="naslov" class="w-full px-3 py-2 border rounded-md" required>
+      </div>
+      <div class="mb-4">
+        <label for="opis" class="block text-gray-700 font-bold mb-2">Opis</label>
+        <textarea id="opis" name="opis" rows="4" class="w-full px-3 py-2 border rounded-md" required></textarea>
+      </div>
+      <div class="mb-4">
+        <label for="slikaUrl" class="block text-gray-700 font-bold mb-2">Slika URL</label>
+        <input type="url" id="slikaUrl" name="slikaUrl" class="w-full px-3 py-2 border rounded-md" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="cijena" class="block text-gray-700 font-bold mb-2">Cijena</label>
+        <input type="number" id="cijena" name="cijena" class="w-full px-3 py-2 border rounded-md" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="godiste" class="block text-gray-700 font-bold mb-2">Godište</label>
+        <input type="number" id="godiste" name="godiste" class="w-full px-3 py-2 border rounded-md" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="kilometraza" class="block text-gray-700 font-bold mb-2">Kilometraža</label>
+        <input type="number" id="kilometraza" name="kilometraza" class="w-full px-3 py-2 border rounded-md" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="snaga" class="block text-gray-700 font-bold mb-2">Snaga</label>
+        <input type="number" id="snaga" name="snaga" class="w-full px-3 py-2 border rounded-md" required>
+      </div>
+
+      <div class="mb-4">
+        <label for="marka" class="block text-gray-700 font-bold mb-2">Marka</label>
+        <select name="marka" id="marka" class="w-full px-3 py-2 border rounded-md" required>
+          <% marke.forEach(marka => { %>
+            <option value="<%= marka %>"><%= marka %></option>
+          <% }) %>
+        </select>
+      </div>
+
+      <!-- Add more fields for other properties of the oglas -->
+      <div class="flex justify-end">
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">Submit</button>
+      </div>
+    </form>
+  </main>
+
+  <%- include('../components/footer'); %>
+</body>
+</html>
