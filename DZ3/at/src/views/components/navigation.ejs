@@ -1,0 +1,29 @@
+<nav>
+  <div class="container mx-auto flex justify-between items-center py-5">
+    <a href="/" class="text-2xl font-bold text-dark-blue flex items-center gap-1 hover:text-blue">
+      autotrgovina
+      <%- include('./icons/car'); %>
+    </a>
+    <ul class="flex items-center">
+      <li class="mx-2">
+        <a href="/cars" class="text-dark-blue hover:text-blue">Cars</a>
+      </li>
+      <li class="mx-2">
+        <a href="/about" class="text-dark-blue hover:text-blue">Sellers</a>
+      </li>
+      <li class="mx-2">
+        <a href="/marke" class="text-dark-blue hover:text-blue">Brands</a>
+      </li>
+      <li class="mx-2">
+        <a href="/contact" class="text-dark-blue hover:text-blue">Contact</a>
+      </li>
+
+      <li class="mx-2">
+        <a href="/oglasi/new" class="flex gap-1 items-center bg-black px-3 py-2 text-white rounded-full transition-colors hover:bg-grey-blue">
+          <%- include('./icons/plus'); %>
+          <span class="mr-2">Oglas</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

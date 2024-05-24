@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../components/head', {title: "Brands - Auto trgovina" }) %>
+  <body class="bg-off-white">
+    <%- include('../components/navigation') %>
+
+    <div class="container grid grid-cols-3 gap-6 mx-auto p-2">
+      <% marke.forEach(marka => { %>
+        <div class="bg-white p-6 rounded-lg shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-110 duration-300 mx-auto">
+          <h3 class="text-2xl font-bold mt-4"><%= marka.naziv %></h3>
+          <img class="overflow-auto h-48" src="<%= marka.ikonaUrl %>" alt="<%= marka.naziv %>" class="w-full h-48 object-cover rounded-t-lg">
+        </div>
+      <% }) %>
+
+      <div class="bg-white p-6 rounded-lg shadow-md transition ease-in-out hover:-translate-y-1 hover:scale-105 duration-300">
+          <form action="/marke" method="POST" >
+            <input name="naziv" type="text" class="w-full p-2 mb-1 border border-off-white rounded-lg" placeholder="Add new brand...">
+            <div class="flex flex-column items-center">
+              <input name="ikonaUrl" type="url" class="w-full p-2 border border-off-white rounded-l-lg" placeholder="Icon URL">
+              <button class="bg-dark-blue text-white p-3 rounded-r-lg hover:bg-blue">
+                <%- include('../components/icons/plus'); %>
+              </button>
+            </div>
+          </form>
+      </div>
+    </div>
+
+
+
+    <%- include('../components/footer'); %>
+  </body>
+</html>

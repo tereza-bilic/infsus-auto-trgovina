@@ -1,39 +1,49 @@
-import conn from "@/lib/db";
+import { PrismaClient, Marka } from '@prisma/client';
 
-export type Marka = {
-  id?: number;
-  ime: string;
+const prisma = new PrismaClient();
+
+export const getAllMarke = async (): Promise<Marka[]> => {
+  return await prisma.marka.findMany();
+  // return [
+  //   {
+  //     id: 1,
+  //     naziv: 'Opel',
+  //     ikonaUrl: 'https://www.opel.hr/content/dam/Opel/Europe/croatia/nscwebsite/hr/00_Home/Opel-Logo-Header.png',
+  //   },
+  //   {
+  //     id: 2,
+  //     naziv: 'Volkswagen',
+  //     ikonaUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Volkswagen_logo_2019.svg/1200px-Volkswagen_logo_2019.svg.png',
+  //   },
+  //   {
+  //     id: 3,
+  //     naziv: 'Audi',
+  //     ikonaUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Audi-Logo_2016.svg/1200px-Audi-Logo_2016.svg.png',
+  //   },
+  // ];
 };
 
-const getAll = () => {
-  return conn.query("SELECT * FROM marka");
+export const getMarkaById = async (id: number): Promise<Marka | null> => {
+  return await prisma.marka.findUnique({
+    where: { id },
+  });
 };
 
-const get = (id: number) => {
-  return conn.query("SELECT * FROM marka WHERE id = $1", [id]);
+export const createMarka = async (data: Omit<Marka, 'id'>): Promise<Marka> => {
+  return await prisma.marka.create({
+    data,
+  });
 };
 
-const add = (marka: Marka) => {
-  return conn.query("INSERT INTO marka (ime) VALUES ($1)", [marka.ime]);
+export const updateMarka = async (id: number, data: Partial<Marka>): Promise<Marka> => {
+  return await prisma.marka.update({
+    where: { id },
+    data,
+  });
 };
 
-const update = (id: number, marka: Marka) => {
-  return conn.query("UPDATE marka SET (ime) = ($1) WHERE id = $2", [
-    marka.ime,
-    id,
-  ]);
+export const deleteMarka = async (id: number): Promise<Marka> => {
+  return await prisma.marka.delete({
+    where: { id },
+  });
 };
-
-const remove = (id: number) => {
-  return conn.query("DELETE FROM marka WHERE id = $1", [id]);
-};
-
-const marka = {
-  getAll,
-  get,
-  add,
-  update,
-  remove,
-};
-
-export default marka;
