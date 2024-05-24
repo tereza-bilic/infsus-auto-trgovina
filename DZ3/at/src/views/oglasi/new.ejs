@@ -49,7 +49,7 @@
         <label for="marka" class="block text-gray-700 font-bold mb-2">Marka</label>
         <select name="marka" id="marka" class="w-full px-3 py-2 border rounded-md" required>
           <% marke.forEach(marka => { %>
-            <option value="<%= marka %>"><%= marka %></option>
+            <option value="<%= marka.id %>"><%= marka.naziv %></option>
           <% }) %>
         </select>
       </div>

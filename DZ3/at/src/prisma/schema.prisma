@@ -57,17 +57,19 @@ model Prodavac {
 }
 
 model Marka {
-  id    Int     @id @default(autoincrement())
-  naziv String  @unique
-  oglasi Oglas[]
+  id       Int     @id @default(autoincrement())
+  naziv    String  @unique
+  ikonaUrl String
+  oglasi   Oglas[]
 }
 
 model PovijestServisiranja {
-  id       Int      @id @default(autoincrement())
-  datum    DateTime
-  serviser String
-  opis     String
-  cijena   Float
-  oglasId  Int
-  oglas    Oglas    @relation(fields: [oglasId], references: [id])
+  id                   Int      @id @default(autoincrement())
+  datum                DateTime
+  serviser             String
+  opis                 String
+  cijena               Float
+  trenutnaKilomentraza Int
+  oglasId              Int
+  oglas                Oglas    @relation(fields: [oglasId], references: [id])
 }

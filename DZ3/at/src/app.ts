@@ -8,6 +8,7 @@ import createError from 'http-errors';
 import indexRouter from './controllers/indexController';
 import carsRouter from './controllers/carsController';
 import oglasiRouter from './routes/oglasi';
+import markeRouter from './routes/marke';
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/cars', carsRouter)
 app.use('/oglasi', oglasiRouter);
+app.use('/marke', markeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
