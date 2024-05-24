@@ -30,3 +30,7 @@ export const deleteOglas = async (id: number): Promise<Oglas> => {
     where: { id },
   });
 };
+
+export {OblikKaroserije} from '@prisma/client';
+export {VrstaMjenjaca} from '@prisma/client';
+export {VrstaMotora} from '@prisma/client';

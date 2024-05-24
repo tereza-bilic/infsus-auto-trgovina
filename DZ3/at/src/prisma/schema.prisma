@@ -44,8 +44,8 @@ model Oglas {
   vrstaMjenjaca        VrstaMjenjaca
   snagaKw              Int
   datumObjave          DateTime
-  objavioKorisnikId    Int
-  objavioKorisnik      Prodavac            @relation(fields: [objavioKorisnikId], references: [id])
+  objavioKorisnikId    Int?
+  objavioKorisnik      Prodavac?            @relation(fields: [objavioKorisnikId], references: [id])
   povijestServisiranja PovijestServisiranja[]
 }
 

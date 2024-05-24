@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getAllOglasi, getOglasById, createOglas, updateOglas, deleteOglas } from '../models/Oglas';
+import { getAllOglasi, getOglasById, createOglas, updateOglas, deleteOglas, OblikKaroserije, VrstaMjenjaca, VrstaMotora } from '../models/Oglas';
 import { getAllMarke } from '../models/Marka';
 
 export const listOglasi = async (req: Request, res: Response) => {
@@ -23,12 +23,35 @@ export const newOglasFormHandler = async (req: Request, res: Response) => {
   // send vrsta_motora, vrsta_mjenjaca, oblik_karoserije enums from prisma shema for dropdown
   res.render('oglasi/new', {
     marke,
+    karoserije: Object.values(OblikKaroserije),
+    mjenjaci: Object.values(VrstaMjenjaca),
+    motori: Object.values(VrstaMotora),
   }
   );
 };
 
 export const createOglasHandler = async (req: Request, res: Response) => {
-  const oglas = await createOglas(req.body);
+  const {modelId, ...rest} = req.body;
+  const oglas = await createOglas({
+    ...rest,
+    model: {
+      connect: {
+        id: Number(req.body.modelId)
+      }
+    },
+    datumObjave: new Date(),
+    cijena: Number(req.body.cijena),
+    godinaProizvodnje: Number(req.body.godinaProizvodnje),
+    kilometraza: Number(req.body.kilometraza),
+    snagaKw: Number(req.body.snagaKw),
+    objavioKorisnik: {
+      create: {
+        id: 1,
+        ime: 'Anon',
+        email: 'anon@mail.com'
+      }
+    }
+  });
   res.redirect(`/oglasi/${oglas.id}`);
 };
 
