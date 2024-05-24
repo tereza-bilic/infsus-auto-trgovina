@@ -84,3 +84,6 @@ const oglas = {
 };
 
 export default oglas;
+export {OblikKaroserije} from '@prisma/client';
+export {VrstaMjenjaca} from '@prisma/client';
+export {VrstaMotora} from '@prisma/client';

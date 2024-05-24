@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum OblikKaroserije {
+  Limuzina
+  Karavan
+  Kupe
+  Kabriolet
+  SUV
+  Pickup
+  Minivan
+}
+
+enum VrstaMotora {
+  Benzin
+  Dizel
+  Elektricni
+  Hibridni
+}
+
+enum VrstaMjenjaca {
+  Manuelni
+  Automatski
+}
+
+model Oglas {
+  id                   Int                 @id @default(autoincrement())
+  naslov               String
+  modelId              Int
+  model                Marka               @relation(fields: [modelId], references: [id])
+  opis                 String
+  slikaUrl             String
+  kilometraza          Int
+  cijena               Float
+  godinaProizvodnje    Int
+  oblikKaroserije      OblikKaroserije
+  vrstaMotora          VrstaMotora
+  vrstaMjenjaca        VrstaMjenjaca
+  snagaKw              Int
+  datumObjave          DateTime
+  objavioKorisnikId    Int?
+  objavioKorisnik      Prodavac?            @relation(fields: [objavioKorisnikId], references: [id])
+  povijestServisiranja PovijestServisiranja[]
+}
+
+model Prodavac {
+  id     Int     @id @default(autoincrement())
+  ime    String
+  email  String  @unique
+  oglasi Oglas[]
+}
+
+model Marka {
+  id       Int     @id @default(autoincrement())
+  naziv    String  @unique
+  ikonaUrl String
+  oglasi   Oglas[]
+}
+
+model PovijestServisiranja {
+  id                   Int      @id @default(autoincrement())
+  datum                DateTime
+  serviser             String
+  opis                 String
+  cijena               Float
+  trenutnaKilomentraza Int
+  oglasId              Int
+  oglas                Oglas    @relation(fields: [oglasId], references: [id])
+}
