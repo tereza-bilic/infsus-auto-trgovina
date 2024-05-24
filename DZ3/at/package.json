@@ -5,7 +5,10 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "ts-node-dev src/server.ts",
-    "tailwind:watch": "npx tailwindcss -i ./src/public/stylesheets/input.css -o ./src/public/stylesheets/output.css --watch "
+    "tailwind:watch": "npx tailwindcss -i ./src/public/stylesheets/input.css -o ./src/public/stylesheets/output.css --watch ",
+    "build": "npx prisma generate --schema=./src/prisma/schema.prisma",
+    "migrate": "npx prisma migrate dev --schema=./src/prisma/schema.prisma --name",
+    "apply-migrations": "npx prisma migrate deploy --schema ./src/prisma/schema.prisma"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

@@ -5,19 +5,35 @@
   <link href="/stylesheets/output.css" rel="stylesheet">
 </head>
 <body class="bg-off-white">
-  <!-- <h1 class="underline text-3xl text-dark-blue"><%= title %></h1> -->
-
+  <%- include('./components/navigation'); %>
   <div class="container mx-auto">
+        <!--  search box -->
+    <div class="container">
+      <form class="flex items-center justify-end my-5">
+        <!-- filter dropdown -->
+        <select class="w-1/2 p-2 border border-off-white rounded-lg mr-5">
+          <%  %>
+          <option value="all">All cars</option>
+          <option value="new">New cars</option>
+          <option value="used">Used cars</option>
+        </select>
+
+        <!-- search input -->
+        <input type="text" class="w-1/2 p-2 border border-off-white rounded-l-lg" placeholder="Search cars...">
+        <button class="bg-blue text-white p-2 rounded-r-lg">Search</button>
+      </form>
+    </div>
+
     <ul>
-      <% cars.forEach(car => { %>
+      <% cars.forEach(auto => { %>
         <div class="my-5 p-5 bg-grey-blue border border-off-white rounded-lg shadow">
           <div>
-              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> <%= car.make %>  •  <%= car.model %></h5>
+              <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> <%= auto.naslov %>  •  <%= auto.model %></h5>
           </div>
           <div class="flex flex-column">
-            <img src="<%= car.image %>" alt="<%= car.make %> <%= car.model %>" class="w-full h-64 object-cover rounded-lg">
+            <img src="<%= auto.image %>" alt="<%= auto.naslov %> <%= auto.model %>" class="w-full h-64 object-cover rounded-lg">
             <div>
-              <p class="mb-3 italic text-white "> <%= car.year %></p>
+              <p class="mb-3 italic text-white "> <%= auto.godina_proizvodnje %></p>
               <p class="mb-3 font-normal text-white "> Lorem ipsum
                 dolor sit amet, consectetur adipiscing elit.
                 Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
