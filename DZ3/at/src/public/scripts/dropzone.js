@@ -1,5 +1,5 @@
 const dropZone = document.getElementById('drop-zone');
-const fileInput = document.getElementById('slika');
+const fileInput = document.getElementById('slikaUrl');
 const preview = document.getElementById('preview');
 
 dropZone.addEventListener('dragover', (event) => {
