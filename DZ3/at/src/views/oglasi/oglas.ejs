@@ -12,14 +12,18 @@
 
   <main class="container mx-auto my-10 p-4">
     <h2 class="text-3xl font-bold mb-4">Novi Oglas</h2>
-    <form action="/oglasi" method="POST" class="container">
+    <form
+      action="/oglasi/<%= oglas ? `${oglas.id}` : '' %>?_method=PUT"
+      method="POST"
+      class="space-y-4"
+    >
       <div class="mb-4 flex gap-2">
         <div class="w-3/4 mr-3">
           <label for="naslov" class="block text-grey-blue font-bold mb-2 ">Naslov</label>
-          <input type="text" id="naslov" name="naslov" class="w-full px-3 py-2 border border-dark-white rounded-md mb-4" required>
+          <input value="<%= oglas?.naslov %>" type="text" id="naslov" name="naslov" class="w-full px-3 py-2 border border-dark-white rounded-md mb-4" required>
 
           <label for="opis" class="block text-grey-blue font-bold mb-2">Opis</label>
-          <textarea id="opis" name="opis" rows="4" class="w-full px-3 py-2 border border-dark-white rounded-md" required></textarea>
+          <textarea id="opis" name="opis" rows="4" class="w-full px-3 py-2 text-black border border-dark-white rounded-md" required><%= oglas?.opis %></textarea>
         </div>
 
         <%- include('../components/dropzone'); %>
@@ -30,13 +34,13 @@
           <label for="modelId" class="block text-grey-blue font-bold mb-2">Marka</label>
           <select name="modelId" id="modelId" class="w-full px-3 py-2 border border-dark-white rounded-md" required>
             <% marke.forEach(marka => { %>
-              <option value="<%= marka.id %>"><%= marka.naziv %></option>
+              <option value="<%= marka.id %>"  <%= marka.id === oglas?.modelId ? 'selected' : '' %>><%= marka.naziv %></option>
             <% }) %>
           </select>
         </div>
         <div>
           <label for="cijena" class="block text-grey-blue font-bold mb-2">Cijena</label>
-          <input type="number" id="cijena" name="cijena" class="w-full px-3 py-2 border border-dark-white rounded-md" required>
+          <input value="<%= oglas?.cijena %>" type="number" id="cijena" name="cijena" class="w-full px-3 py-2 border border-dark-white rounded-md" required>
         </div>
       </div>
 
@@ -44,17 +48,17 @@
       <div class="mb-4 grid grid-cols-3 gap-2">
         <div>
           <label for="godinaProizvodnje" class="block text-grey-blue font-bold mb-2">Godište</label>
-          <input type="number" id="godinaProizvodnje" name="godinaProizvodnje" class="w-full px-3 py-2 border border-dark-white rounded-md" required>
+          <input value="<%= oglas?.godinaProizvodnje %>" type="number" id="godinaProizvodnje" name="godinaProizvodnje" class="w-full px-3 py-2 border border-dark-white rounded-md" required>
         </div>
 
         <div>
           <label for="kilometraza" class="block text-grey-blue font-bold mb-2">Kilometraža</label>
-          <input type="number" id="kilometraza" name="kilometraza" class="w-full px-3 py-2 border border-dark-white rounded-md" required>
+          <input value="<%= oglas?.kilometraza %>" type="number" id="kilometraza" name="kilometraza" class="w-full px-3 py-2 border border-dark-white rounded-md" required>
         </div>
 
         <div>
           <label for="snagaKw" class="block text-grey-blue font-bold mb-2">Snaga</label>
-          <input type="number" id="snagaKw" name="snagaKw" class="w-full px-3 py-2 border border-dark-white rounded-md" required>
+          <input value="<%= oglas?.snagaKw %>" type="number" id="snagaKw" name="snagaKw" class="w-full px-3 py-2 border border-dark-white rounded-md" required>
         </div>
       </div>
 
@@ -63,7 +67,7 @@
           <label for="oblikKaroserije" class="block text-grey-blue font-bold mb-2">Oblik karoserije</label>
           <select name="oblikKaroserije" id="oblikKaroserije" class="w-full px-3 py-2 border border-dark-white rounded-md" required>
             <%karoserije.forEach(karoserija => { %>
-              <option value="<%= karoserija%>"><%= karoserija %></option>
+              <option value="<%= karoserija%>"  <%= karoserija === oglas?.oblikKaroserije ? 'selected' : '' %> ><%= karoserija %></option>
             <% }) %>
           </select>
         </div>
@@ -72,7 +76,7 @@
           <label for="vrstaMjenjaca" class="block text-grey-blue font-bold mb-2">Vrsta mjenjača</label>
           <select name="vrstaMjenjaca" id="vrstaMjenjaca" class="w-full px-3 py-2 border border-dark-white rounded-md" required>
             <% mjenjaci.forEach(mjenjac => { %>
-              <option value="<%= mjenjac %>"><%= mjenjac %></option>
+              <option value="<%= mjenjac %>" <%= mjenjac === oglas?.vrstaMjenjaca ? 'selected' : '' %>><%= mjenjac %></option>
             <% }) %>
           </select>
         </div>
@@ -81,16 +85,20 @@
           <label for="vrstaMotora" class="block text-grey-blue font-bold mb-2">Vrsta motora</label>
           <select name="vrstaMotora" id="vrstaMotora" class="w-full px-3 py-2 border border-dark-white rounded-md" required>
             <% motori.forEach(motor => { %>
-              <option value="<%= motor %>"><%= motor %></option>
+              <option value="<%= motor %>" <%= motor === oglas?.vrstaMotora ? 'selected' : '' %>><%= motor %></option>
             <% }) %>
           </select>
         </div>
       </div>
 
-      <!-- Add more fields for other properties of the oglas -->
       <div class="flex justify-end">
         <button type="submit" class="bg-dark-blue text-white px-4 py-2 rounded-md hover:bg-blue">Submit</button>
       </div>
+    </form>
+
+    Servisna knjižica
+    <form>
+
     </form>
   </main>
 

@@ -4,13 +4,23 @@ import { getAllMarke } from '../models/Marka';
 
 export const listOglasi = async (req: Request, res: Response) => {
   const oglasi = await getAllOglasi();
-  res.render('oglasi/list', { oglasi });
+  res.render('oglasi/list', {
+    oglasi
+  });
 };
 
 export const showOglas = async (req: Request, res: Response) => {
   const oglas = await getOglasById(Number(req.params.id));
+  const marke = await getAllMarke();
+
   if (oglas) {
-    res.render('oglasi/show', { oglas });
+    res.render('oglasi/oglas', {
+      oglas,
+      marke,
+      karoserije: Object.values(OblikKaroserije),
+      mjenjaci: Object.values(VrstaMjenjaca),
+      motori: Object.values(VrstaMotora),
+    });
   } else {
     res.status(404).send('Oglas not found');
   }
@@ -19,9 +29,8 @@ export const showOglas = async (req: Request, res: Response) => {
 export const newOglasFormHandler = async (req: Request, res: Response) => {
   const marke = await getAllMarke();
 
-  //load marka model for dropdown
-  // send vrsta_motora, vrsta_mjenjaca, oblik_karoserije enums from prisma shema for dropdown
-  res.render('oglasi/new', {
+  res.render('oglasi/oglas', {
+    oglas: undefined,
     marke,
     karoserije: Object.values(OblikKaroserije),
     mjenjaci: Object.values(VrstaMjenjaca),
@@ -43,21 +52,33 @@ export const createOglasHandler = async (req: Request, res: Response) => {
     cijena: Number(req.body.cijena),
     godinaProizvodnje: Number(req.body.godinaProizvodnje),
     kilometraza: Number(req.body.kilometraza),
-    snagaKw: Number(req.body.snagaKw),
-    objavioKorisnik: {
-      create: {
-        id: 1,
-        ime: 'Anon',
-        email: 'anon@mail.com'
-      }
-    }
+    snagaKw: Number(req.body.snagaKw)
   });
-  res.redirect(`/oglasi/${oglas.id}`);
+  res.redirect(`/oglasi`);
 };
 
 export const updateOglasHandler = async (req: Request, res: Response) => {
-  const oglas = await updateOglas(Number(req.params.id), req.body);
-  res.redirect(`/oglasi/${oglas.id}`);
+  const {modelId, ...rest} = req.body;
+  try {
+    const oglas = await updateOglas(Number(req.params.id), {
+      ...rest,
+      model: {
+        connect: {
+          id: Number(req.body.modelId)
+        }
+      },
+      datumObjave: new Date(),
+      cijena: Number(req.body.cijena),
+      godinaProizvodnje: Number(req.body.godinaProizvodnje),
+      kilometraza: Number(req.body.kilometraza),
+      snagaKw: Number(req.body.snagaKw)
+    });
+
+    res.redirect(`/oglasi`);
+  }
+  catch (e) {
+    console.log(e);
+  }
 };
 
 export const deleteOglasHandler = async (req: Request, res: Response) => {

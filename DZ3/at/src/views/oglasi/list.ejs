@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../components/head', {title: "Oglasi - Auto trgovina" }) %>
+<body class="bg-off-white">
+  <%- include('../components/navigation'); %>
+
+  <main class="container mx-auto my-10 p-4">
+    <h2 class="text-3xl font-bold mb-4">Oglasi</h2>
+    <a href="/oglasi/oglas" class="bg-blue text-white px-4 py-2 rounded-md hover:bg-dark-blue mb-4 inline-block">Novi Oglas</a>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <% oglasi.forEach(function(oglas) { %>
+        <div class="bg-white rounded-lg shadow-md p-4">
+          <img src="<%= oglas.slikaUrl %>" alt="<%= oglas.naslov %>" class="w-full h-48 object-cover rounded-md mb-4">
+          <h3 class="text-xl font-bold mb-2"><%= oglas.naslov %></h3>
+          <p class="text-gray-700 mb-2">Model: <%= oglas.model %></p>
+          <p class="text-gray-700 mb-2">Opis: <%= oglas.opis %></p>
+          <p class="text-gray-700 mb-2">Kilometraža: <%= oglas.kilometraza %> km</p>
+          <p class="text-gray-700 mb-2">Cijena: <%= oglas.cijena %> EUR</p>
+          <p class="text-gray-700 mb-2">Godina Proizvodnje: <%= oglas.godinaProizvodnje %></p>
+          <div class="flex space-x-2 mt-4">
+            <a href="/oglasi/<%= oglas.id %>" class="bg-blue text-white px-4 py-2 rounded-md hover:bg-dark-blue">Edit</a>
+            <form action="/oglasi/<%= oglas.id %>?_method=DELETE" method="POST" class="inline-block">
+              <button type="submit" class="bg-grey-blue text-white px-4 py-2 rounded-md hover:bg-black">Delete</button>
+            </form>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </main>
+
+  <%- include('../components/footer');  %>
+</body>
+</html>
