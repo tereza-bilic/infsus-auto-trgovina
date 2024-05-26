@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1716758932380" clover="3.2.0">
-  <project timestamp="1716758932380" name="All files">
-    <metrics statements="190" coveredstatements="128" conditionals="28" coveredconditionals="6" methods="40" coveredmethods="19" elements="258" coveredelements="153" complexity="0" loc="190" ncloc="190" packages="4" files="12" classes="12"/>
+<coverage generated="1716760811607" clover="3.2.0">
+  <project timestamp="1716760811607" name="All files">
+    <metrics statements="200" coveredstatements="133" conditionals="34" coveredconditionals="8" methods="41" coveredmethods="19" elements="275" coveredelements="160" complexity="0" loc="200" ncloc="200" packages="5" files="13" classes="13"/>
     <package name="src">
       <metrics statements="20" coveredstatements="15" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="app.ts" path="/Users/macair/Documents/FER/INFSUS/DZ/DZ3/at/src/app.ts">
@@ -29,7 +29,7 @@
       </file>
     </package>
     <package name="src.controllers">
-      <metrics statements="96" coveredstatements="64" conditionals="14" coveredconditionals="6" methods="18" coveredmethods="12"/>
+      <metrics statements="101" coveredstatements="67" conditionals="18" coveredconditionals="8" methods="18" coveredmethods="12"/>
       <file name="indexController.ts" path="/Users/macair/Documents/FER/INFSUS/DZ/DZ3/at/src/controllers/indexController.ts">
         <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="3" count="1" type="stmt"/>
@@ -70,7 +70,7 @@
         <line num="52" count="0" type="stmt"/>
       </file>
       <file name="oglasController.ts" path="/Users/macair/Documents/FER/INFSUS/DZ/DZ3/at/src/controllers/oglasController.ts">
-        <metrics statements="33" coveredstatements="30" conditionals="6" coveredconditionals="4" methods="7" coveredmethods="7"/>
+        <metrics statements="38" coveredstatements="33" conditionals="10" coveredconditionals="6" methods="7" coveredmethods="7"/>
         <line num="6" count="2" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
@@ -86,24 +86,29 @@
         <line num="35" count="1" type="stmt"/>
         <line num="46" count="2" type="stmt"/>
         <line num="47" count="2" type="stmt"/>
-        <line num="48" count="2" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
-        <line num="64" count="2" type="stmt"/>
-        <line num="65" count="2" type="stmt"/>
-        <line num="66" count="2" type="stmt"/>
-        <line num="67" count="2" type="stmt"/>
+        <line num="50" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="54" count="2" type="stmt"/>
+        <line num="68" count="2" type="stmt"/>
+        <line num="71" count="2" type="stmt"/>
+        <line num="72" count="2" type="stmt"/>
+        <line num="74" count="2" type="stmt"/>
+        <line num="75" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="76" count="0" type="stmt"/>
+        <line num="80" count="2" type="stmt"/>
         <line num="81" count="2" type="stmt"/>
-        <line num="84" count="0" type="stmt"/>
-        <line num="88" count="2" type="stmt"/>
-        <line num="89" count="2" type="stmt"/>
-        <line num="90" count="2" type="stmt"/>
-        <line num="93" count="2" type="stmt"/>
-        <line num="94" count="1" type="stmt"/>
-        <line num="97" count="1" type="cond" truecount="2" falsecount="2"/>
-        <line num="98" count="0" type="stmt"/>
+        <line num="96" count="2" type="stmt"/>
         <line num="99" count="0" type="stmt"/>
-        <line num="103" count="1" type="stmt"/>
-        <line num="104" count="1" type="stmt"/>
+        <line num="103" count="2" type="stmt"/>
+        <line num="104" count="2" type="stmt"/>
+        <line num="105" count="2" type="stmt"/>
+        <line num="108" count="2" type="stmt"/>
+        <line num="109" count="1" type="stmt"/>
+        <line num="112" count="1" type="cond" truecount="2" falsecount="2"/>
+        <line num="113" count="0" type="stmt"/>
+        <line num="114" count="0" type="stmt"/>
+        <line num="118" count="1" type="stmt"/>
+        <line num="119" count="1" type="stmt"/>
       </file>
       <file name="povijestServisiranjaController.ts" path="/Users/macair/Documents/FER/INFSUS/DZ/DZ3/at/src/controllers/povijestServisiranjaController.ts">
         <metrics statements="30" coveredstatements="5" conditionals="6" coveredconditionals="0" methods="5" coveredmethods="0"/>
@@ -137,6 +142,17 @@
         <line num="76" count="0" type="stmt"/>
         <line num="77" count="0" type="stmt"/>
         <line num="79" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.middleware">
+      <metrics statements="5" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="upload.ts" path="/Users/macair/Documents/FER/INFSUS/DZ/DZ3/at/src/middleware/upload.ts">
+        <metrics statements="5" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="9" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.models">
@@ -222,13 +238,13 @@
       </file>
       <file name="oglasi.ts" path="/Users/macair/Documents/FER/INFSUS/DZ/DZ3/at/src/routes/oglasi.ts">
         <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
         <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
       </file>
       <file name="povijestServisiranja.ts" path="/Users/macair/Documents/FER/INFSUS/DZ/DZ3/at/src/routes/povijestServisiranja.ts">
         <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

@@ -140,7 +140,7 @@ describe("oglasController", () => {
         naslov: "Test Oglas",
         modelId: 1,
         opis: "Test opis",
-        slikaUrl: "test.jpg",
+        slikaUrl: undefined,
         kilometraza: 10000,
         cijena: 10000,
         godinaProizvodnje: 2022,
@@ -171,11 +171,11 @@ describe("oglasController", () => {
             id: Number(req.body.modelId),
           },
         },
-        datumObjave: expect.any(Date),
-        cijena: expect.any(Number),
-        godinaProizvodnje: expect.any(Number),
-        kilometraza: expect.any(Number),
-        snagaKw: expect.any(Number),
+        datumObjave: new Date(),
+        cijena: Number(req.body.cijena),
+        godinaProizvodnje: Number(req.body.godinaProizvodnje),
+        kilometraza: Number(req.body.kilometraza),
+        snagaKw: Number(req.body.snagaKw),
       });
       expect(res.redirect).toHaveBeenCalledWith(`/oglasi`);
     });
@@ -200,7 +200,7 @@ describe("oglasController", () => {
         naslov: "Updated Oglas",
         modelId: 1,
         opis: "Updated opis",
-        slikaUrl: "test.jpg",
+        slikaUrl: null,
         kilometraza: 10000,
         cijena: 10000,
         godinaProizvodnje: 2022,
@@ -229,11 +229,11 @@ describe("oglasController", () => {
             id: Number(req.body.modelId),
           },
         },
-        datumObjave: expect.any(Date),
-        cijena: expect.any(Number),
-        godinaProizvodnje: expect.any(Number),
-        kilometraza: expect.any(Number),
-        snagaKw: expect.any(Number),
+        datumObjave: new Date(),
+        cijena: Number(req.body.cijena),
+        godinaProizvodnje: Number(req.body.godinaProizvodnje),
+        kilometraza: Number(req.body.kilometraza),
+        snagaKw: Number(req.body.snagaKw),
       });
       expect(res.redirect).toHaveBeenCalledWith(`/oglasi`);
     });
