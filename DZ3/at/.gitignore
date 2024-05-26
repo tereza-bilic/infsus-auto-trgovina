@@ -2,4 +2,4 @@
 .env
 migration_lock.toml
 src/public/stylesheets/output.css
-
+.DS_Store

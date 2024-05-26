@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import { getAllOglasi, getOglasById, createOglas, updateOglas, deleteOglas, OblikKaroserije, VrstaMjenjaca, VrstaMotora } from '../models/Oglas';
 import { getAllMarke } from '../models/Marka';
+import { getServiceHistoryByOglasId } from '../models/PovijestServisiranja';
 
 export const listOglasi = async (req: Request, res: Response) => {
   const oglasi = await getAllOglasi();
@@ -12,6 +13,7 @@ export const listOglasi = async (req: Request, res: Response) => {
 export const showOglas = async (req: Request, res: Response) => {
   const oglas = await getOglasById(Number(req.params.id));
   const marke = await getAllMarke();
+  const povijestServisiranja = await getServiceHistoryByOglasId(Number(req.params.id));
 
   if (oglas) {
     res.render('oglasi/oglas', {
@@ -20,6 +22,7 @@ export const showOglas = async (req: Request, res: Response) => {
       karoserije: Object.values(OblikKaroserije),
       mjenjaci: Object.values(VrstaMjenjaca),
       motori: Object.values(VrstaMotora),
+      povijestServisiranja
     });
   } else {
     res.status(404).send('Oglas not found');
@@ -35,6 +38,7 @@ export const newOglasFormHandler = async (req: Request, res: Response) => {
     karoserije: Object.values(OblikKaroserije),
     mjenjaci: Object.values(VrstaMjenjaca),
     motori: Object.values(VrstaMotora),
+    povijestServisiranja: []
   }
   );
 };
@@ -85,3 +89,4 @@ export const deleteOglasHandler = async (req: Request, res: Response) => {
   await deleteOglas(Number(req.params.id));
   res.redirect('/oglasi');
 };
+

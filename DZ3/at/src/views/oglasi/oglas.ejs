@@ -11,9 +11,9 @@
   <%- include('../components/navigation'); %>
 
   <main class="container mx-auto my-10 p-4">
-    <h2 class="text-3xl font-bold mb-4">Novi Oglas</h2>
+    <h2 class="text-3xl font-bold mb-4"><%= oglas ? "Uredi" : "Novi Oglas" %></h2>
     <form
-      action="/oglasi/<%= oglas ? `${oglas.id}` : '' %>?_method=PUT"
+      action="/oglasi/<%= oglas ? `${oglas.id}?_method=PUT` : '' %>"
       method="POST"
       class="space-y-4"
     >
@@ -92,14 +92,13 @@
       </div>
 
       <div class="flex justify-end">
-        <button type="submit" class="bg-dark-blue text-white px-4 py-2 rounded-md hover:bg-blue">Submit</button>
+        <button type="submit" class="bg-dark-blue text-white px-4 py-2 rounded-md hover:bg-blue">Spremi</button>
       </div>
     </form>
 
-    Servisna knjižica
-    <form>
+    <%- include('povijestServisiranjaTable', { servisHistories: povijestServisiranja, oglas: oglas?.id ? oglas : undefined}) %>
 
-    </form>
+
   </main>
 
   <%- include('../components/footer'); %>

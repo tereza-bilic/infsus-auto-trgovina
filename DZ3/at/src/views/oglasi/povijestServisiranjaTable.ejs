@@ -1,0 +1,42 @@
+<div class="mt-4">
+  <h2 class="text-xl font-semibold mb-2">Servisna knjižica</h2>
+  <% if (servisHistories.length > 0) { %>
+    <table class="w-full border-collapse border border-dark-white">
+      <thead>
+        <tr>
+          <th class="border border-dark-white px-4 py-2">Datum</th>
+          <th class="border border-dark-white px-4 py-2">Serviser</th>
+          <th class="border border-dark-white px-4 py-2">Opis</th>
+          <th class="border border-dark-white px-4 py-2">Cijena</th>
+          <th class="border border-dark-white px-4 py-2">Kilometraža</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% servisHistories.forEach(history => { %>
+          <tr>
+            <td class="border border-dark-white px-4 py-2"><%= history.datum.toDateString() %></td>
+            <td class="border border-dark-white px-4 py-2"><%= history.serviser %></td>
+            <td class="border border-dark-white px-4 py-2"><%= history.opis %></td>
+            <td class="border border-dark-white px-4 py-2"><%= history.cijena.toFixed(2) %></td>
+            <td class="border border-dark-white px-4 py-2"><%= history.trenutnaKilomentraza %></td>
+            <td class="border border-dark-white px-4 py-2">
+              <form action="/servis/<%=history.id%>?_method=DELETE" method="POST">
+                <button type="submit" class="bg-grey-blue text-white px-4 py-2 rounded-md hover:bg-black">Obriši</button>
+              </form>
+            </td>
+            <td class="border border-dark-white px-4 py-2">
+              <a href="/servis/<%=history.id%>" class="bg-blue text-white px-4 py-2 rounded-md hover:bg-dark-blue">Uredi</a>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p class="text-gray-600">Za dodavanje servise knjižice, dovršite formu</p>
+  <% } %>
+
+  <!-- New service histoy form -->
+  <% if (oglas?.id) { %>
+    <a href="/servis/new/<%=oglas.id%>" class="bg-blue text-white px-4 py-2 rounded-md hover:bg-dark-blue mt-4 inline-block">Dodaj novi servis</a>
+  <% } %>
+</div>
