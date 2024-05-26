@@ -108,6 +108,6 @@
     "outDir": "./dist",
     "rootDir": "./src",
   },
-    "include": ["src/**/*.ts"],
+    "include": ["src/**/*.ts", "src/middleware/upload.js"],
     "exclude": ["node_modules"]
 }
