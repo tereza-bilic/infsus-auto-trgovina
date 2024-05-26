@@ -19,9 +19,6 @@ export const validateServisHistory = async (servisHistory: {
   });
 
   if (previousHistory) {
-    if (servisHistory.datum < previousHistory.datum) {
-      throw new Error('Datum servisa mora biti kasniji od datuma prethodnog servisa.');
-    }
     if (servisHistory.trenutnaKilomentraza <= previousHistory.trenutnaKilomentraza) {
       throw new Error('Trenutna kilometraža mora biti veća od kilometraže prethodnog servisa.');
     }
