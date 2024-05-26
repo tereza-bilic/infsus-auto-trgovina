@@ -31,6 +31,17 @@ export const deleteOglas = async (id: number): Promise<Oglas> => {
   });
 };
 
+export const searchOglasiByNaziv = async (searchTerm: string) => {
+  return prisma.oglas.findMany({
+    where: {
+      naslov: {
+        contains: searchTerm,
+        mode: 'insensitive', // Case insensitive search
+      },
+    },
+  });
+};
+
 export {OblikKaroserije} from '@prisma/client';
 export {VrstaMjenjaca} from '@prisma/client';
 export {VrstaMotora} from '@prisma/client';
