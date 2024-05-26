@@ -1,7 +1,6 @@
 // src/controllers/povijestServisiranjaController.ts
 import { Request, Response } from 'express';
 import { getAllServisHistories, getServisHistoryById, createServisHistory, updateServisHistory, deleteServisHistory } from '../models/PovijestServisiranja';
-import { connect } from 'http2';
 
 export const showServisHistory = async (req: Request, res: Response) => {
   try {
@@ -34,7 +33,10 @@ export const createServisHistoryHandler = async (req: Request, res: Response) =>
 
     res.redirect(`/oglasi/${oglasId}`);
   } catch (error) {
-    console.log(error);
+    if (error instanceof Error) {
+      console.error(error.message);
+      res.status(400).send(error.message);
+    }
     res.status(500).send('Error creating servis history');
   }
 };
@@ -60,6 +62,11 @@ export const updateServisHistoryHandler = async (req: Request, res: Response) =>
     } as any);
     res.redirect(`/oglasi/${req.body.oglasId}`);
   } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+      res.status(400).send(error.message);
+    }
+
     res.status(500).send('Error updating servis history');
   }
 };

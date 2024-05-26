@@ -17,8 +17,8 @@
             <td class="border border-dark-white px-4 py-2"><%= history.datum.toDateString() %></td>
             <td class="border border-dark-white px-4 py-2"><%= history.serviser %></td>
             <td class="border border-dark-white px-4 py-2"><%= history.opis %></td>
-            <td class="border border-dark-white px-4 py-2"><%= history.cijena.toFixed(2) %></td>
-            <td class="border border-dark-white px-4 py-2"><%= history.trenutnaKilomentraza %></td>
+            <td class="border border-dark-white px-4 py-2"><%= history.cijena.toFixed(2) %> EUR</td>
+            <td class="border border-dark-white px-4 py-2"><%= history.trenutnaKilomentraza %> km</td>
             <td class="border border-dark-white px-4 py-2">
               <form action="/servis/<%=history.id%>?_method=DELETE" method="POST">
                 <button type="submit" class="bg-grey-blue text-white px-4 py-2 rounded-md hover:bg-black">Obriši</button>
