@@ -5,8 +5,8 @@ import {
   createMarkaHandler,
   updateMarkaHandler,
   deleteMarkaHandler,
-} from "../../controllers/markaController";
-import * as MarkaModel from "../../models/Marka"; // Add this line
+} from "../../../controllers/markaController";
+import * as MarkaModel from "../../../models/Marka"; // Add this line
 
 describe("markaController", () => {
   let req: Request;
