@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getAllOglasi, getOglasById, createOglas, updateOglas, deleteOglas, OblikKaroserije, VrstaMjenjaca, VrstaMotora } from '../models/Oglas';
+import { getAllOglasi, getOglasById, createOglas, updateOglas, deleteOglas, OblikKaroserije, VrstaMjenjaca, VrstaMotora, searchOglasiByNaziv } from '../models/Oglas';
 import { getAllMarke } from '../models/Marka';
 import { getServiceHistoryByOglasId } from '../models/PovijestServisiranja';
 
@@ -90,3 +90,19 @@ export const deleteOglasHandler = async (req: Request, res: Response) => {
   res.redirect('/oglasi');
 };
 
+export const searchOglasiHandler = async (req: Request, res: Response) => {
+  const { search } = req.query;
+
+  // Perform the search only if a search term is provided
+  if (typeof search === 'string' && search.trim() !== '') {
+    const oglasi = await searchOglasiByNaziv(search);
+    return res.render('oglasi/list', { oglasi, search });
+  }
+
+  // If no search term, redirect to listOglasi handler or render an empty list
+  const oglasi = await getAllOglasi();
+  res.render('oglasi/list', {
+    oglasi
+  });
+
+};

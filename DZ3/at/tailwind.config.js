@@ -9,7 +9,8 @@ module.exports = {
       "off-white": '#f0f1fa',
       "grey-blue": '#2b2e3a',
       "dark-blue": '#071bdf',
-      "blue": '#1a2ffb'
+      "blue": '#1a2ffb',
+      "red": '#d94848',
     },
     extend: {},
   },

@@ -1,9 +1,9 @@
 import express from 'express';
-import { listOglasi, showOglas, createOglasHandler, updateOglasHandler, deleteOglasHandler, newOglasFormHandler } from '../controllers/oglasController';
+import { searchOglasiHandler, showOglas, createOglasHandler, updateOglasHandler, deleteOglasHandler, newOglasFormHandler } from '../controllers/oglasController';
 
 const router = express.Router();
 
-router.get('/', listOglasi);
+router.get('/', searchOglasiHandler);
 router.get('/oglas', newOglasFormHandler);
 router.get('/:id', showOglas);
 router.post('/', createOglasHandler);

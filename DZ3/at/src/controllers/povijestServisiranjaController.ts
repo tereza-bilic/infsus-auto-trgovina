@@ -6,7 +6,7 @@ export const showServisHistory = async (req: Request, res: Response) => {
   try {
     const history = await getServisHistoryById(Number(req.params.id));
     if (history) {
-      res.render('servisi/servis', { servis: history, oglasId: history.oglasId });
+      res.render('servisi/servis', { servis: history, oglasId: history.oglasId, error: undefined });
     } else {
       res.status(404).send('Servis history not found');
     }
@@ -34,15 +34,15 @@ export const createServisHistoryHandler = async (req: Request, res: Response) =>
     res.redirect(`/oglasi/${oglasId}`);
   } catch (error) {
     if (error instanceof Error) {
-      console.error(error.message);
-      res.status(400).send(error.message);
+      return res.render('servisi/servis', { servis: req.body, oglasId: req.body.oglasId, error: error.message });
     }
+
     res.status(500).send('Error creating servis history');
   }
 };
 
 export const newServisHistoryFormHandler = async (req: Request, res: Response) => {
-  res.render('servisi/servis', { servis: undefined, oglasId: req.params.oglasId });
+  res.render('servisi/servis', { servis: undefined, oglasId: req.params.oglasId, error: undefined });
 }
 
 export const updateServisHistoryHandler = async (req: Request, res: Response) => {
@@ -60,11 +60,11 @@ export const updateServisHistoryHandler = async (req: Request, res: Response) =>
         }
       }
     } as any);
+
     res.redirect(`/oglasi/${req.body.oglasId}`);
   } catch (error) {
     if (error instanceof Error) {
-      console.error(error.message);
-      res.status(400).send(error.message);
+      return res.render('servisi/servis', { servis: req.body, oglasId: req.body.oglasId, error: error.message});
     }
 
     res.status(500).send('Error updating servis history');
