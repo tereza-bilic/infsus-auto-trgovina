@@ -45,8 +45,15 @@ export const newOglasFormHandler = async (req: Request, res: Response) => {
 
 export const createOglasHandler = async (req: Request, res: Response) => {
   const {modelId, ...rest} = req.body;
+  let slikaUrl;
+
+  if (req.file) {
+    slikaUrl = req.file.buffer.toString('base64');
+  }
+
   const oglas = await createOglas({
     ...rest,
+    slikaUrl,
     model: {
       connect: {
         id: Number(req.body.modelId)
@@ -63,9 +70,17 @@ export const createOglasHandler = async (req: Request, res: Response) => {
 
 export const updateOglasHandler = async (req: Request, res: Response) => {
   const {modelId, ...rest} = req.body;
+
+  let slikaUrl: string | null = null;
+  if (req.file) {
+    slikaUrl = req.file.buffer.toString('base64');
+  }
+
+
   try {
     const oglas = await updateOglas(Number(req.params.id), {
       ...rest,
+      slikaUrl,
       model: {
         connect: {
           id: Number(req.body.modelId)

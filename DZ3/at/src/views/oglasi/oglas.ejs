@@ -15,6 +15,7 @@
     <form
       action="/oglasi/<%= oglas ? `${oglas.id}?_method=PUT` : '' %>"
       method="POST"
+      enctype="multipart/form-data"
       class="space-y-4"
     >
       <div class="mb-4 flex gap-2">
@@ -26,7 +27,7 @@
           <textarea id="opis" name="opis" rows="4" class="w-full px-3 py-2 text-black border border-dark-white rounded-md" required><%= oglas?.opis %></textarea>
         </div>
 
-        <%- include('../components/dropzone'); %>
+        <%- include('../components/dropzone', {slika: oglas?.slikaUrl ? `data:image/jpeg;base64,${oglas?.slikaUrl}` : undefined}); %>
       </div>
 
       <div class="mb-4 grid grid-cols-2 gap-2">

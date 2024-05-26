@@ -35,7 +35,7 @@ model Oglas {
   modelId              Int
   model                Marka               @relation(fields: [modelId], references: [id])
   opis                 String
-  slikaUrl             String
+  slikaUrl             String?
   kilometraza          Int
   cijena               Float
   godinaProizvodnje    Int

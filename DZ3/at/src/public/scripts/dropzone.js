@@ -18,6 +18,12 @@ dropZone.addEventListener('drop', (event) => {
   handleFiles(files);
 });
 
+
+// Handle click to trigger file input
+dropZone.addEventListener('click', () => {
+  fileInput.click();
+});
+
 fileInput.addEventListener('change', (event) => {
   const files = event.target.files;
   handleFiles(files);
