@@ -4,7 +4,7 @@ import { listOglasi, showOglas, createOglasHandler, updateOglasHandler, deleteOg
 const router = express.Router();
 
 router.get('/', listOglasi);
-router.get('/new', newOglasFormHandler);
+router.get('/oglas', newOglasFormHandler);
 router.get('/:id', showOglas);
 router.post('/', createOglasHandler);
 router.put('/:id', updateOglasHandler);

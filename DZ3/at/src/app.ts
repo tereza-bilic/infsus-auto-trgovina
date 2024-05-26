@@ -1,14 +1,15 @@
 import express, { Request, Response, NextFunction, ErrorRequestHandler } from 'express';
+import methodOverride from 'method-override';
 import { HttpError } from 'http-errors';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import createError from 'http-errors';
 
-import indexRouter from './controllers/indexController';
-import carsRouter from './controllers/carsController';
+import indexRouter from './routes/index';
 import oglasiRouter from './routes/oglasi';
 import markeRouter from './routes/marke';
+import servisiRouter from './routes/povijestServisiranja';
 
 const app = express();
 
@@ -20,12 +21,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/cars', carsRouter)
 app.use('/oglasi', oglasiRouter);
 app.use('/marke', markeRouter);
+app.use('/servis', servisiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
