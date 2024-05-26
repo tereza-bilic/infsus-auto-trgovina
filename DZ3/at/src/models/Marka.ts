@@ -1,4 +1,4 @@
-import { PrismaClient, Marka } from '@prisma/client';
+import { PrismaClient, Marka } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -29,13 +29,16 @@ export const getMarkaById = async (id: number): Promise<Marka | null> => {
   });
 };
 
-export const createMarka = async (data: Omit<Marka, 'id'>): Promise<Marka> => {
+export const createMarka = async (data: Omit<Marka, "id">): Promise<Marka> => {
   return await prisma.marka.create({
     data,
   });
 };
 
-export const updateMarka = async (id: number, data: Partial<Marka>): Promise<Marka> => {
+export const updateMarka = async (
+  id: number,
+  data: Partial<Marka>
+): Promise<Marka> => {
   return await prisma.marka.update({
     where: { id },
     data,

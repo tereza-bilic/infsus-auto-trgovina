@@ -69,7 +69,7 @@ model PovijestServisiranja {
   serviser             String
   opis                 String
   cijena               Float
-  trenutnaKilomentraza Int
+  trenutnaKilometraza Int
   oglasId              Int
   oglas                Oglas    @relation(fields: [oglasId], references: [id])
 }
